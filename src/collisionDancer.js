@@ -1,6 +1,6 @@
 var MakeCollisionDancer = function(top, left, timeBetweenSteps) {
   // add incrementer as property on this (randomize?)
-  this.incrementer = [Math.random() * 10, Math.random() * 10];
+  this.incrementer = {top: Math.random() * 10, left: Math.random() * 10};
   top = Math.random() * 100;
   left = Math.random() * 100;
   top = top + '%';
@@ -27,42 +27,38 @@ MakeCollisionDancer.prototype.step = function() {
   MakeDancer.prototype.step.call(this);
   var topNumPosition = parseInt(this.position.top.split('%')[0]);
   if (topNumPosition >= 99 || topNumPosition <= 1) {
-    this.incrementer[0] *= -1;
+    this.incrementer.top *= -1;
   }
 
-  if (topNumPosition + this.incrementer[0] >= 99) {
+  if (topNumPosition + this.incrementer.top >= 99) {
     topNumPosition = 99;
-  } else if (topNumPosition + this.incrementer[0] <= 1) {
+  } else if (topNumPosition + this.incrementer.top <= 1) {
     topNumPosition = 1;
   } else {
-    topNumPosition += this.incrementer[0];
+    topNumPosition += this.incrementer.top;
   }
 
-  topNumPosition += this.incrementer[0];
-  this.position[0] = topNumPosition + '%';
+  topNumPosition += this.incrementer.top;
+  this.position.top = topNumPosition + '%';
 
   var leftNumPosition = parseInt(this.position.left.split('%')[0]);
   if (leftNumPosition >= 99 || leftNumPosition <= 1) {
-    this.incrementer[1] *= -1;
+    this.incrementer.left *= -1;
   }
 
-  if (leftNumPosition + this.incrementer[1] >= 99) {
+  if (leftNumPosition + this.incrementer.left >= 99) {
     leftNumPosition = 99;
-  } else if (leftNumPosition + this.incrementer[1] <= 1) {
+  } else if (leftNumPosition + this.incrementer.left <= 1) {
     leftNumPosition = 1;
   } else {
-    leftNumPosition += this.incrementer[1];
+    leftNumPosition += this.incrementer.left;
   }
 
-
-
-
-
-  this.position[1] = leftNumPosition + '%';
+  this.position.left = leftNumPosition + '%';
 
   this.$node.animate({
-    top: this.position[0],
-    left: this.position[1]
+    top: this.position.top,
+    left: this.position.left
   }, 1000, 'linear');
 };
 
