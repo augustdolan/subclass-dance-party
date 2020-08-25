@@ -1,6 +1,5 @@
 var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // var blinkyDancer = new MakeDancer(top, left, timeBetweenSteps);
-  // debugger;
   MakeDancer.call(this, top, left, timeBetweenSteps);
   // dancer.step() was invoked
   //blinkyDancer.step => dancer.step function

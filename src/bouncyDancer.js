@@ -1,16 +1,26 @@
-var BouncyDancer = function(top, left, timeBetweenSteps) {
+var MakeBouncyDancer = function(top, left, timeBetweenSteps) {
+  this.position = {top: top, left: left};
+  this.newPosition = {top: top + 100, left: left + 350};
   MakeDancer.call(this, top, left, timeBetweenSteps);
-  this.position = [top, left];
-  this.newPosition = [top + 15, left + 15];
+
 };
 
-BouncyDancer.prototype = Object.create(MakeDancer.prototype);
-BouncyDancer.prototype.constructor = BouncyDancer;
+MakeBouncyDancer.prototype = Object.create(MakeDancer.prototype);
+MakeBouncyDancer.prototype.constructor = MakeBouncyDancer;
 
 
-BouncyDancer.prototype.step = function() {
-  //
+MakeBouncyDancer.prototype.step = function() {
+  var top = this.newPosition.top;
   MakeDancer.prototype.step.call(this);
-  this.$node.animate(this.setPosition(this.newPosition[0], this.newPosition[1]), 1000);
-  this.$node.animate(this.setPosition(this.position[0], this.position[1]), 1000);
+  this.$node.animate({
+    top: this.newPosition.top,
+    left: this.newPosition.top
+  });
+  // this.setPosition();
+
+  this.$node.animate({
+    top: this.position.top,
+    left: this.position.left
+  }, 1000);
+  // this.setPosition(this.newPosition[0], this.newPosition[1]);
 };

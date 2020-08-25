@@ -6,6 +6,7 @@ describe('blinkyDancer', function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new MakeBlinkyDancer(10, 20, timeBetweenSteps);
+    // collisionDancer = new MakeCollisionDancer(99, 99, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -32,4 +33,24 @@ describe('blinkyDancer', function() {
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
   });
+  // describe('collisionDancer', function() {
+
+  //   it('should call step at least once per second', function() {
+  //     sinon.spy(collisionDancer, 'step');
+  //     expect(collisionDancer.step.callCount).to.be.equal(0);
+  //     clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
+  //     clock.tick(timeBetweenSteps);
+
+  //     expect(collisionDancer.step.callCount).to.be.equal(1);
+
+  //     clock.tick(timeBetweenSteps);
+  //     expect(collisionDancer.step.callCount).to.be.equal(2);
+  //   });
+  //   it('should change direction when hittin an edge', function() {
+
+  //   });
+  // });
 });
+
+
+
