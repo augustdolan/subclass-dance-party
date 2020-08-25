@@ -33,12 +33,3 @@ describe('bouncyDancer', function() {
     xit('use jQuery .animate()');
   });
 });
-// Function lineUp
-
-// Input: Click button
-
-// key pieces: position paramters (top & left), move it to new position, need to stop step movement
-// justification: move the dancers to left and halt any movement
-// explanation: save this.position to this.savedPosition, save this.newPosition to this.savedNewPosition, and then set both to left 0 and top math.random()
-
-// Output: moving bouncyDancer to left
