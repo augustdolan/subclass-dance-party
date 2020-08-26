@@ -25,7 +25,7 @@ describe('bouncyDancer', function() {
 
 
   describe('lineUp function', function() {
-    it('should line things up on the left', function() {
+    xit('should line things up on the left', function() {
       console.log(this);
       bouncyDancer.lineUp();
       expect(this.position[1]).to.equal(0);

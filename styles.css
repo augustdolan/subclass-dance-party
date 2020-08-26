@@ -16,6 +16,11 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+
+.addDancerButton:hover {
+  color: magenta;
+}
+
 .topbar {
   height:32px;
   background-color: #555;
@@ -50,4 +55,12 @@ body, a:link, a:visited, a:active{
 
 .priorityLeft {
   left: 0 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inline;
 }

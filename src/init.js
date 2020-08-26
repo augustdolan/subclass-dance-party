@@ -10,8 +10,16 @@ $(document).ready(function() {
     // var lineUpFunctionName = $(this).data('lineup-function-name');
     // var lineUpFunction = window[lineUpFunctionName];
 
-
   });
+
+  $(document).on({
+    mouseenter: function() {
+      $(this).addClass('show');
+    },
+    mouseleave: function() {
+      $(this).removeClass('show');
+    }
+  }, '.worm');
 
   $('.closestNeighbour').on('click', function(event) {
     console.log('on click event was pressed');
