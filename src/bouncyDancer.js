@@ -2,7 +2,7 @@ var MakeBouncyDancer = function(top, left, timeBetweenSteps) {
   this.position = {top: top, left: left};
   this.newPosition = {top: top + 100, left: left + 350};
   MakeDancer.call(this, top, left, timeBetweenSteps);
-
+  this.$node = $('<span class="bouncyDancer"></span>');
 };
 
 MakeBouncyDancer.prototype = Object.create(MakeDancer.prototype);
@@ -23,18 +23,6 @@ MakeBouncyDancer.prototype.step = function() {
     left: this.position.left
   }, 1000);
   // this.setPosition(this.newPosition[0], this.newPosition[1]);
-};
-
-MakeBouncyDancer.prototype.lineUp = function() {
-  // save this.position to a new property
-  this.savedPosition = this.position;
-  // save this.newposition to a new property
-  this.savedNewPosition = this.newPosition;
-  // set this.position.left to 0
-  this.position.left = 0;
-  // set this.newposition.left to 0
-  this.newPosition = this.position;
-
 };
 
 // Function lineUp
