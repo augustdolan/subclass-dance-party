@@ -5,13 +5,17 @@ $(document).ready(function() {
 
     for (var i = 0; i < window.dancers.length; i++) {
       $(window.dancers[i].$node).addClass('priorityLeft');
-
     }
 
     // var lineUpFunctionName = $(this).data('lineup-function-name');
     // var lineUpFunction = window[lineUpFunctionName];
 
 
+  });
+
+  $('.closestNeighbour').on('click', function(event) {
+    console.log('on click event was pressed');
+    MakeBouncyDancer.prototype.closestNeighbour();
   });
 
   $('.addDancerButton').on('click', function(event) {

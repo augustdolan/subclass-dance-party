@@ -10,6 +10,7 @@ MakeBouncyDancer.prototype.constructor = MakeBouncyDancer;
 
 
 MakeBouncyDancer.prototype.step = function() {
+  console.log(window.dancers);
   var top = this.newPosition.top;
   MakeDancer.prototype.step.call(this);
   this.$node.animate({
@@ -23,6 +24,42 @@ MakeBouncyDancer.prototype.step = function() {
     left: this.position.left
   }, 1000);
   // this.setPosition(this.newPosition[0], this.newPosition[1]);
+};
+
+// inputs: window.dancers
+
+// key piece: .bouncyDancer class, this.position,  closest neighbour,
+
+// outputs: bouncy Dancers move towards their closest neighbour
+MakeBouncyDancer.prototype.closestNeighbour = function() {
+
+  // iterate over window.dancers
+  for (var i = 0; i < window.dancers.length; i++) {
+    var currentDancer = window.dancers[i];
+    var closestNeighbour;
+    var smallestDistance;
+    for (let j = 0; j < window.dancers.length; j++) {
+      var currentNeighbour = window.dancers[j];
+      if (i === j) {
+        continue;
+      }
+      var x = (currentDancer.position.left - currentNeighbour.position.left) ^ 2;
+      var y = (currentDancer.position.top - currentNeighbour.position.top) ^ 2;
+      var currentDistance = x + y;
+
+      if (smallestDistance === undefined || currentDistance < smallestDistance) {
+        smallestDistance = currentDistance;
+        closestNeighbour = currentNeighbour;
+      }
+    }
+    currentDancer.$node.animate({
+      top: closestNeighbour.position.top,
+      left: closestNeighbour.position.left
+    }, 1000);
+    currentDancer.position.top = closestNeighbour.position.top;
+    currentDancer.position.left = closestNeighbour.position.left;
+  }
+
 };
 
 // Function lineUp
